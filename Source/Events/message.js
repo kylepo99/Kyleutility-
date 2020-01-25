@@ -7,7 +7,7 @@ module.exports = (client, message) => {
 
     // Create Arguments And Get Command \\
     const Arguments = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
-    const Command = args.shift().toLowerCase();
+    const Command = Arguments.shift().toLowerCase();
 
     // Get Command Props & Confirm It Exists \\
     const Cmd = client.commands.get(Command);
