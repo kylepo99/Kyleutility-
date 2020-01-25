@@ -136,7 +136,7 @@ evt.on('data', function ok(request) {
 
 
 
-
+//-- On Message
 client.on("message", async message => {
 
 if(message.channel.type == "dm" || message.channel.type == "group") return;
