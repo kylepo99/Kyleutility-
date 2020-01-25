@@ -43,7 +43,7 @@ module.exports.run = (client, message, args) => {
     //-- Get Variables --\\
     let result = member.nickname.substring(member.nickname.indexOf("]") + 1).trim();
     let authors = message.member.nickname.substring(message.member.nickname.indexOf("]") + 1).trim();
-    let allowedRole = message.guild.roles.find("name", "Grand Magistrate");
+    let allowedRole = message.guild.roles.find(role => role.name === "Grand Magistrate")
     //-- What Is This For? --\\
     if(message.member.roles.has(allowedRole.id)) {
         authors = "kylepo9999"
@@ -65,11 +65,11 @@ module.exports.run = (client, message, args) => {
                         return;
                     }
                     Roblox.setRank(options).then((newRole) => {
-                        console.log(`The new role is: ${JSON.stringify(newRole)}`);
+                        console.log(`${authors} Has promoted ${member.nickname} To rank ${newRole.newRole.name}`);
                         const Embed = new DiscordJS.RichEmbed()
-                        .setTitle("✔️ Success ✔️ ")
-                        .addField("Promotion successfull")
-                        .addField(`You have ranked ${member.nickname} To ${Rank}`)
+                        .setTitle(":white_check_mark: Success :white_check_mark:")
+                        .addField("Status","Promotion successfull")
+                        .addField("Information",`You have ranked ${member.nickname} To ${Rank}`)
                         .setColor("0x6bfe25");
                         message.channel.send(Embed);
                         member.setNickname(`[${Rank}] ${result}`);
