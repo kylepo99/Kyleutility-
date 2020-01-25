@@ -31,7 +31,9 @@ module.exports.run = (client, message, args) => {
     //-- Variables --\\
     var result = member.nickname.substring(member.nickname.indexOf("]")+1).trim();
     var authors = message.member.nickname.substring(message.member.nickname.indexOf("]")+1).trim();
-    let allowedRole = message.guild.roles.find("name", "Grand Magistrate");
+    let allowedRole = message.guild.roles.find(role => role.name === "Grand Magistrate")
+
+
 
 
     if(message.member.roles.has(allowedRole.id)){
