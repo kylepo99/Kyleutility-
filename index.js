@@ -69,6 +69,7 @@ event.on("data", (request) => {
                     .addField("The time of date was ", date, true)
                     .addField("The account's age is ", info.age, true)
                     .setColor("0xb00000");
+                    channel.send(Embed);
                 });
             }
         }).catch((err) => console.error(err));
