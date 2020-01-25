@@ -13,7 +13,7 @@ const client = new Discord.Client();
 
 
 async function startApp () {
-    await rbx.cookieLogin("_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_67D9663244B6A3730A44ABB5A12E8BA51D3C5915203883399689F164F5B22C5CAD7C5AAB8E087D3AE5B27032261A1E0A4FCCA4A1279CDF50D2F4D5F0A513BD8012F921E273ADAC1D1A7E438AE011605E8D55AE4F6B946F16D847608C0D4C1E8B6964DC747D222C33D418E82557A53F7BC8F09BD2A2662F2DE4BD1293E59826F60E84E976BD46A3197D56D4A66ECC040420A6D02EACA430422F26F8DC030AF333394BCE25EEBCA8E17B62D1A3100A634A4D494BB9F6738872D277D27E4E67FA644F165C9B0D51E3E97379180060C224848A8B39030A0A698E46C0C41D631C32085EDABB19426E86D7579D1CC60DFC7E0F4025D477980759F811ECCCCBEFF5BD08211830628C8F387FC954E444C1D8FE1B404D58B83858615A98B22483B025868EB9FD85B2")
+    await rbx.cookieLogin("")
     // Do everything else, calling functions and the like.
     let currentUser = await rbx.getCurrentUser()
 
@@ -483,7 +483,7 @@ if(command.toLowerCase() == "promote") {
 
 
 
-
+/*
 
 if(command === "ra") {
   let member = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -531,7 +531,7 @@ if(command === "ra") {
 
 
 
-/*
+
 if(command === "unra") {
   let member = message.mentions.members.first() || message.guild.members.get(args[0]);
   var result = member.nickname.substring(member.nickname.indexOf("]")+1).trim();
