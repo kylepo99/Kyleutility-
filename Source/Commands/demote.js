@@ -53,11 +53,11 @@ module.exports.run = (client, message, args) => {
                       return;
                   }
                   Roblox.demote(options).then((newRole) => {
-                      console.log(`The new role is: ${JSON.stringify(newRole)}`);
+                      console.log(`${authors} Has demoted ${member.nickname} To rank ${newRole.newRole.name}`);
                       const Embed = new DiscordJS.RichEmbed()
-                      .setTitle("✔️ Success ✔️ ")
-                      .addField("Demotion successfull")
-                      .addField(`You have demoted ${member.nickname} To ${newRole.newRole.name}`)
+                      .setTitle(":white_check_mark: Success :white_check_mark:")
+                      .addField("Status:","Demotion successfull")
+                      .addField(`Information:`,`You have demoted ${member.nickname} To ${newRole.newRole.name}`)
                       .setColor("0x6bfe25");
                       message.channel.send(Embed);
                       member.setNickname(`[${newRole.newRole.name}] ${result}`);
