@@ -11,7 +11,10 @@ module.exports.run = (client, message, args) => {
     files.forEach(file => {
       if (!file.endsWith(".js")) return;
       let commandName = file.split(".")[0];
-      Embed.addField(commandName, `[Usage] [Description]`, true);
+      let props = require(`./Commands/${file}`);
+      let usage = props.config.usage;
+      let description = props.config.description;
+      Embed.addField(commandName, `[${usage}] ${description}`, true);
     });
   });
   Embed.setColor("0xef7ede");
