@@ -33,10 +33,9 @@ module.exports.run = (client, message, args) => {
     var authors = message.member.nickname.substring(message.member.nickname.indexOf("]")+1).trim();
     let allowedRole = message.guild.roles.find(role => role.name === "Grand Magistrate")
 
-
-    if(message.member.roles.has(allowedRole.id)){
+    if(message.member.roles.has(allowedRole.id)) {
         authors = "kylepo9999"
-      }
+    }
     Roblox.getIdFromUsername(authors).then((authorID) => {
       //-- Get Rank Of Person Being Ranked --\\
       Roblox.getIdFromUsername(result).then((userID) => {
@@ -59,7 +58,7 @@ module.exports.run = (client, message, args) => {
                     .setColor("0x6bfe25");
                       message.channel.send(Embed);
                       member.setNickname(`[${newRole.newRole.name}] ${result}`);
-                      return
+                      return;
                   }); 
           }).catch((err) => message.reply(err.message));
       }).catch((err) => message.reply(err.message));
