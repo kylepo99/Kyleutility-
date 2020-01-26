@@ -7,12 +7,12 @@ module.exports.run = (client, message, args) => {
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     //-- Check Member Stuff --\\
     if (!member) {
-        const exampleEmbed = new DiscordJS.RichEmbed()
+        const Embed = new DiscordJS.RichEmbed()
       .setTitle("⚠️ Error⚠️ ")
       .addField("You forgot to tag someone", "tag a person", false)
       .setColor("0xb00000")
       .setFooter("Dummbass")
-      message.channel.send(exampleEmbed);
+      message.channel.send(Embed);
       return;
     }
     if(message.mentions.members.first().id === message.author.id) {

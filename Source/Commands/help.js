@@ -2,7 +2,7 @@
 const DiscordJS = require("discord.js");
 const FileSystem = require("fs");
 
-//-- Promote Command --\\
+//-- Help Command --\\
 module.exports.run = (client, message, args) => {
   const Embed = new DiscordJS.RichEmbed();
   Embed.setAuthor("Command List");
