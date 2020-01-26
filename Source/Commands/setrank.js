@@ -80,3 +80,9 @@ module.exports.run = (client, message, args) => {
         }).catch((err) => message.reply(err.message));
     }).catch((err) => message.reply(err.message));
 }
+
+module.exports.config = {
+    usage: ";setrank <user> <rank>",
+    description: "Sets the user's rank to the specified rank."
+  }
+  

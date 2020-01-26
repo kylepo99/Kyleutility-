@@ -64,3 +64,8 @@ module.exports.run = (client, message, args) => {
       }).catch((err) => message.reply(err.message));
   }).catch((err) => message.reply(err.message));
 }
+
+module.exports.config = {
+  usage: ";promote <user>",
+  description: "promotes the user by one rank."
+}

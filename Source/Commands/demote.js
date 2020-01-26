@@ -64,3 +64,8 @@ module.exports.run = (client, message, args) => {
       }).catch((err) => message.reply(err.message));
   }).catch((err) => message.reply(err.message));
 }
+
+module.exports.config = {
+  usage: ";demote <user>",
+  description: "demotes the user one rank."
+}
