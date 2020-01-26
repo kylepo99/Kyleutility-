@@ -4,6 +4,7 @@ const FileSystem = require("fs");
 
 //-- Help Command --\\
 module.exports.run = (client, message, args) => {
+  let i = 0;
   const Embed = new DiscordJS.RichEmbed();
   Embed.setAuthor("Command List");
   FileSystem.readdir("./Commands/", (err, files) => {
@@ -11,16 +12,20 @@ module.exports.run = (client, message, args) => {
     files.forEach(file => {
       if (!file.endsWith(".js")) return;
       let commandName = file.split(".")[0];
-      let props = require(`./Commands/${file}`);
+      let props = require(`../Commands/${file}`);
       let usage = props.config.usage;
       let description = props.config.description;
       Embed.addField(commandName, `[${usage}] ${description}`, true);
+      i++;
+      if ( i == files.length ) {
+      Embed.setColor("0xef7ede");
+      Embed.setTimestamp();
+      Embed.setFooter("KyleUtility");
+      message.channel.send(Embed);
+      }
     });
   });
-  Embed.setColor("0xef7ede");
-  Embed.setTimestamp();
-  Embed.setFooter("KyleUtility");
-  message.channel.send(Embed);
+  
 }
 
 module.exports.config = {
