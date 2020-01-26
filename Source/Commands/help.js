@@ -7,7 +7,7 @@ module.exports.run = (client, message, args) => {
   let i = 0;
   const Embed = new DiscordJS.RichEmbed();
   Embed.setAuthor("Command List");
-  FileSystem.readdir("../Commands/", (err, files) => {
+  FileSystem.readdir("./Commands/", (err, files) => {
     if (err) return console.error(err.message);
     files.forEach(file => {
       if (!file.endsWith(".js")) return;
@@ -18,7 +18,7 @@ module.exports.run = (client, message, args) => {
       Embed.addField(commandName, `[${usage}] ${description}`, true);
       i++;
       if ( i == files.length ) {
-      Embed.setColor("0xef7ede");
+      Embed.setColor("0x7cfc00")
       Embed.setTimestamp();
       Embed.setFooter("KyleUtility");
       message.channel.send(Embed);
