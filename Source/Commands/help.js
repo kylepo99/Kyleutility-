@@ -6,12 +6,12 @@ const FileSystem = require("fs");
 module.exports.run = (client, message, args) => {
   const Embed = new DiscordJS.RichEmbed();
   Embed.setAuthor("Command List");
-  FileSystem.readdir("./Commands/", (err, files) => {
+  FileSystem.readdir("../Commands/", (err, files) => {
     if (err) return console.error(err.message);
     files.forEach(file => {
       if (!file.endsWith(".js")) return;
       let commandName = file.split(".")[0];
-      let props = require(`./Commands/${file}`);
+      let props = require(`../Commands/${file}`);
       let usage = props.config.usage;
       let description = props.config.description;
       Embed.addField(commandName, `[${usage}] ${description}`, true);
