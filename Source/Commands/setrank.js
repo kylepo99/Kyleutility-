@@ -46,7 +46,7 @@ module.exports.run = (client, message, args) => {
     let allowedRole = message.guild.roles.find(role => role.name === "Grand Magistrate")
     //-- What Is This For? --\\
     if(message.member.roles.has(allowedRole.id)) {
-        authors = "kylepo9999"
+        authors = "kylepo9999";
     }
     //-- Get Rank Of Person Ranking --\\
     Roblox.getIdFromUsername(authors).then((authorID) => {
