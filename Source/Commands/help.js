@@ -11,7 +11,7 @@ module.exports.run = (client, message, args) => {
   .addField("Promote",'[Promote @user] Promotes the select users rank to the next rank.', true)
   .addField("Demote",'[Demote @user] demotes the select users rank to the previous rank.', true)
   .addField("Help",'[Help] Opens this window. ', true)
-  .setColor("0xef7ede")
+  .setColor("0x7cfc00")
   .setTimestamp()
   .setFooter("KyleUtility")
   message.channel.send(command_LIST)
