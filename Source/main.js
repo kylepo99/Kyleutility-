@@ -27,16 +27,19 @@ FileSystem.readdir("./Commands/", (err, files) => {
     if (err) return console.log(err); // Error Handling
     //-- Loop Through Files --\\
     files.forEach(file => {
+        let i = 0;
         if (!file.endsWith(".js")) return; // Confirm It Is JS File
         const Command = require(`./Commands/${file}`); // Get Command
         let commandName = file.split(".")[0];
         console.log(`[LOAD EVENT] Loading Command: ${commandName}`);
-        Client.commands.set(commandName, Command);
+        Client.commands.set(commandName, Command)
         if (Command.config.aliases.length > 0) {
             Command.config.aliases.forEach(alias => {
-                Client.aliases.set(alias, Commmand);
+                Client.commands.set(Command.config.aliases[i], Command);
+                i++;
             });
-        }
+               }
+            
     });
 });
 

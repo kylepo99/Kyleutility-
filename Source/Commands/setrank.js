@@ -4,7 +4,7 @@ const DiscordJS = require("discord.js");
 
 //-- SetRank Command --\\
 module.exports.run = (client, message, args) => {
-    let member = message.mentions.member.first() || message.guild.member.get(args[0]);
+    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     //-- Make Sure The Member Exists --\\
     if (!member) {
         const Embed = new DiscordJS.RichEmbed()
@@ -84,6 +84,6 @@ module.exports.run = (client, message, args) => {
 module.exports.config = {
     usage: ";setrank <user> <rank>",
     description: "Sets the user's rank to the specified rank.",
-    aliases: ["sr"]
+    aliases: ["sr","br","cr"]
   }
   
