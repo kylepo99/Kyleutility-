@@ -83,6 +83,7 @@ module.exports.run = (client, message, args) => {
 
 module.exports.config = {
     usage: ";setrank <user> <rank>",
-    description: "Sets the user's rank to the specified rank."
+    description: "Sets the user's rank to the specified rank.",
+    aliases: ["sr"]
   }
   

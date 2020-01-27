@@ -67,5 +67,6 @@ module.exports.run = (client, message, args) => {
 
 module.exports.config = {
   usage: ";demote <user>",
-  description: "demotes the user one rank."
+  description: "demotes the user one rank.",
+  aliases: undefined
 }

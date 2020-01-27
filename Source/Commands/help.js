@@ -7,7 +7,7 @@ module.exports.run = (client, message, args) => {
   let i = 0;
   const Embed = new DiscordJS.RichEmbed();
   Embed.setAuthor("Command List");
-  FileSystem.readdir("./Commands/", (err, files) => {
+  FileSystem.readdirSync("./Commands/", (err, files) => {
     if (err) return console.error(err.message);
     files.forEach(file => {
       if (!file.endsWith(".js")) return;
@@ -16,24 +16,15 @@ module.exports.run = (client, message, args) => {
       let usage = props.config.usage;
       let description = props.config.description;
       Embed.addField(commandName, `[${usage}] ${description}`, true);
-      i++;
-      if ( i == files.length ) {
-      Embed.setColor("0x7cfc00")
-      Embed.setTimestamp();
-      Embed.setFooter("KyleUtility");
-      message.channel.send(Embed);
-      }
     });
   });
-  
+  Embed.setColor("0x7cfc00");
+  Embed.setTimestamp();
+  Embed.setFooter("KyleUtility");
 }
 
 module.exports.config = {
   usage: ";help",
-  description: "Gives a list of commands"
+  description: "Gives a list of commands",
+  aliases: ["h"]
 }
-
-// .addField("SetRank",'[SetRank @user , Rank] Changes the select users rank to the selected.', true)
-// .addField("Promote",'[Promote @user] Promotes the select users rank to the next rank.', true)
-// .addField("Demote",'[Demote @user] demotes the select users rank to the previous rank.', true)
-// .addField("Help",'[Help] Opens this window. ', true)

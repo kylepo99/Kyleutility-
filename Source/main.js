@@ -22,6 +22,7 @@ FileSystem.readdir("./Events/", (err, files) => {
 
 //-- Command List Creation \\--
 Client.commands = new Enmap();
+Client.aliases = new Enmap();
 FileSystem.readdir("./Commands/", (err, files) => {
     if (err) return console.log(err); // Error Handling
     //-- Loop Through Files --\\
@@ -31,6 +32,11 @@ FileSystem.readdir("./Commands/", (err, files) => {
         let commandName = file.split(".")[0];
         console.log(`[LOAD EVENT] Loading Command: ${commandName}`);
         Client.commands.set(commandName, Command);
+        if (Command.config.aliases && Command.config.aliases.length > 0) {
+            Command.config.aliases.forEach(alias => {
+                Client.aliases.set(alias, Commmand);
+            });
+        }
     });
 });
 
