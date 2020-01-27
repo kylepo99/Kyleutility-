@@ -32,7 +32,7 @@ FileSystem.readdir("./Commands/", (err, files) => {
         let commandName = file.split(".")[0];
         console.log(`[LOAD EVENT] Loading Command: ${commandName}`);
         Client.commands.set(commandName, Command);
-        if (Command.config.aliases && Command.config.aliases.length > 0) {
+        if (Command.config.aliases.length > 0) {
             Command.config.aliases.forEach(alias => {
                 Client.aliases.set(alias, Commmand);
             });

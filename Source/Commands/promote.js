@@ -68,5 +68,5 @@ module.exports.run = (client, message, args) => {
 module.exports.config = {
   usage: ";promote <user>",
   description: "promotes the user by one rank.",
-  aliases: undefined
+  aliases: []
 }
