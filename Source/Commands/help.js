@@ -30,5 +30,5 @@ module.exports.run = (client, message, args) => {
 module.exports.config = {
   usage: ";help",
   description: "Gives a list of commands",
-  aliases: "h"
+  aliases: ["h"]
 }
