@@ -65,7 +65,7 @@ module.exports.run = (client, message, args) => {
                         return;
                     }
                     Roblox.setRank(options).then((newRole) => {
-                        console.log(`${authors} Has promoted ${member.nickname} To rank ${newRole.newRole.name}`);
+                        console.log(`${authors} Has promoted ${member.nickname} To rank ${Rank}`);
                         const Embed = new DiscordJS.RichEmbed()
                         .setTitle(":white_check_mark: Success :white_check_mark:")
                         .addField("Status","Promotion successfull")
@@ -84,6 +84,6 @@ module.exports.run = (client, message, args) => {
 module.exports.config = {
     usage: ";setrank <user> <rank>",
     description: "Sets the user's rank to the specified rank.",
-    aliases: ["sr","br","cr"]
+    aliases: ["sr"]
   }
   
