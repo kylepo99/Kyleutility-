@@ -16,11 +16,15 @@ FileSystem.readdir("./Events/", (err, files) => {
     files.forEach(file => {
         const Event = require(`./Events/${file}`); // Recieve Event
         let eventName = file.split(".")[0];
+        console.log(Event)
         Client.on(eventName, Event.bind(null, Client)); // Supply Event Callback
     });
 });
 
+
+
 //-- Command List Creation \\--
+
 Client.commands = new Enmap();
 Client.aliases = new Enmap();
 FileSystem.readdir("./Commands/", (err, files) => {
@@ -48,7 +52,14 @@ CookieLogin();
 
 //-- Join Request Even Handler --\\
 let event = Roblox.onJoinRequestHandle(3365840);
+
+event.on('error', function(error) {
+   console.log(`Error occured ${error}`);
+  });
+
+
 event.on("data", (request) => {
+    if (request == null) return
     //-- Get ID From Player's User --\\
     Roblox.getIdFromUsername(request.username).then((id) => {
         //-- Get Information From Player --\\
@@ -81,7 +92,7 @@ event.on("data", (request) => {
             }
         }).catch((err) => console.error(err));
     }).catch((err) => console.error(err));
-});
+})
 
 //-- Client Login --\\
 Client.login(Config.token);
