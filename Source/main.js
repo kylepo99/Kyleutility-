@@ -38,8 +38,7 @@ FileSystem.readdir("./Commands/", (err, files) => {
                 Client.commands.set(Command.config.aliases[i], Command);
                 i++;
             });
-               }
-            
+        }
     });
 });
 
