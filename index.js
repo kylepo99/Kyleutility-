@@ -136,7 +136,7 @@ evt.on('data', function ok(request) {
 
 
 
-
+//-- On Message
 client.on("message", async message => {
 
 if(message.channel.type == "dm" || message.channel.type == "group") return;
@@ -513,97 +513,9 @@ if(command === "ra") {
               member.setNickname("[" + "RA" + "]" + " " + result)
               return
             }
-            member.setNickname("[" + "Restricted Access" + "]" + " " + result)
-            return
-         })
-         .catch(function (err) {
-           message.reply(err.message)
-         })
+        }).catch((err) => console.error(err));
+    }).catch((err) => console.error(err));
+});
 
-    })
-
-
-
-
-})
-}
-
-
-
-
-
-if(command === "unra") {
-  let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-  var result = member.nickname.substring(member.nickname.indexOf("]")+1).trim();
-
-
-  fs.unlink('./Restricted_access/' + result + ".txt", function (err) {
-  if (err) throw err;
-  console.log("saved " + result);
-    rbx.getIdFromUsername(result)
-    .then(function(id) {
-      var options = {
-        group: 3365840,
-        target: id,
-        name: "Test Subject"
-      }
-      rbx.setRank(options)
-         .then(function(newRole) {
-            console.log('The new role is: ' + JSON.stringify(newRole));
-            const sssssuccess = new Discord.RichEmbed()
-               .setTitle("✔️ Success ✔️ ")
-               .addField("Set rank successfull")
-               .addField(" I have ranked " + member.nickname + " To " + "Test Subject")
-               .setColor("0x6bfe25")
-            message.channel.send(sssssuccess)
-            if(result.length + 19 > 32) {
-              member.setNickname("[" + "TS" + "]" + " " + result)
-              return
-            }
-            member.setNickname("[" + "Test Subject" + "]" + " " + result)
-            return
-         })
-         .catch(function (err) {
-           message.reply(err.message)
-         })
-
-    })
-
-
-
-
-})
-}
-
-*/
-
-
-if(command === "help") {
-  const command_LIST = new Discord.RichEmbed()
-  .setAuthor("Command List")
-  .addField("SetRank",';SetRank @user Access ', true)
-  .addField("Promote",';Promote @user', true)
-  .addField("Demote",';Demote @user', true)
-  .addField("~~SSU~~",'~~;SSU~~ **Temporaily removed**', true)
-  .addField("Help",';help', false)
-  .setColor("0xef7ede")
-  message.channel.send(command_LIST)
-
-
-
-
-
-}
-
-}
-
-
-
-
-
-);
-
-
-
-
+//-- Client Login --\\
 client.login(config.token);
